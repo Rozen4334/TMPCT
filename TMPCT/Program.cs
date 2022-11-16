@@ -1,7 +1,7 @@
 ﻿using TMPCT.API;
 using TMPCT.Commands;
 
-// start setup
+// start build
 var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .Build();
@@ -29,9 +29,9 @@ collection.AddSingleton(commandConfiguration);
 collection.AddSingleton(configuration);
 
 collection.AddSingleton<CommandFramework>();
-// end setup
+// end build
 
-// start exec
+// start setup
 using var services = collection.BuildServiceProvider();
 
 var token = new CancellationTokenSource();
@@ -49,7 +49,9 @@ framework.CommandExecuted += (context, result) =>
     
     return Task.CompletedTask;
 };
+// end setup
 
+// start exec
 while (!token.IsCancellationRequested)
 {
     var command = AnsiConsole.Ask<string>("[grey]Command: '[/][orange1]help[/][grey]' for more info[/]");
