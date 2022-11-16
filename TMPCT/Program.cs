@@ -15,7 +15,7 @@ collection.AddLogging(configure =>
 
 collection.AddHttpClient<ITranslateClient, TranslateClient>(configure =>
 {
-    configure.BaseAddress = new Uri(configuration["ApiToken"] ?? "");
+    configure.BaseAddress = new Uri(configuration["ApiUrl"] ?? "");
 });
 
 var commandConfiguration = new CommandConfiguration()
