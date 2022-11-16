@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<!-- 
+		<PublishSingleFile>true</PublishSingleFile>
+		<SelfContained>true</SelfContained>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<PublishReadyToRun>true</PublishReadyToRun> 
+	-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSF.NET.Spectre" Version="1.2.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Using Include="Microsoft.Extensions.DependencyInjection" />
+	<Using Include="Microsoft.Extensions.Configuration" />
+	<Using Include="Microsoft.Extensions.Logging" />
+	<Using Include="CSF" />
+	<Using Include="Spectre.Console"/>
+  </ItemGroup>
+
+</Project>
