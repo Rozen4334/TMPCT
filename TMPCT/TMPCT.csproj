@@ -26,7 +26,7 @@
 	<Using Include="Microsoft.Extensions.Configuration" />
 	<Using Include="Microsoft.Extensions.Logging" />
 	<Using Include="CSF" />
-	<Using Include="Spectre.Console"/>
+	<Using Include="Spectre.Console" />
   </ItemGroup>
 
 </Project>

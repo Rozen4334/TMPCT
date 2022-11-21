@@ -1,4 +1,5 @@
-﻿using TMPCT.API;
+﻿using TMPCT;
+using TMPCT.API;
 using TMPCT.Commands;
 
 // start build
@@ -30,6 +31,14 @@ collection.AddSingleton(configuration);
 
 collection.AddSingleton<CommandFramework>();
 // end build
+
+// start port config
+var portResolver = new CommandProcessor();
+
+await portResolver.StartAsync();
+
+var port = await portResolver.AwaitResultAsync();
+// end port config
 
 // start setup
 using var services = collection.BuildServiceProvider();
