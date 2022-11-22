@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.WebSockets;
-using System.Reflection.Emit;
-using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace TMPCT.Configuration
 {
@@ -86,9 +78,9 @@ namespace TMPCT.Configuration
 
         public async Task SaveAsync(string? path = null, CancellationToken token = default)
         {
-            path ??= Configuration.GetPath();
+            path ??= Config.GetPath();
 
-            var serialized = JsonSerializer.Serialize(this, Configuration.Options);
+            var serialized = JsonSerializer.Serialize(this, Config.Options);
 
             await File.WriteAllTextAsync(path, serialized, token);
         }

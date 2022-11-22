@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TMPCT.Commands.Readers
+﻿namespace TMPCT.Commands.Readers
 {
     public class UriReader : TypeReader<Uri>
     {

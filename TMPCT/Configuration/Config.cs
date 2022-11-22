@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace TMPCT.Configuration
 {
-    public static class Configuration
+    public static class Config
     {
         private static string? _confRoot;
 
@@ -17,7 +12,7 @@ namespace TMPCT.Configuration
 
         public static Settings Settings { get; }
 
-        static Configuration()
+        static Config()
         {
             BasePath = "files";
 
