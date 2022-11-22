@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSF.NET.Spectre" Version="1.2.2.1" />
+    <PackageReference Include="CSF.NET.Spectre" Version="1.3.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
@@ -26,7 +26,7 @@
 	<Using Include="Microsoft.Extensions.Configuration" />
 	<Using Include="Microsoft.Extensions.Logging" />
 	<Using Include="CSF" />
-	<Using Include="Spectre.Console"/>
+	<Using Include="Spectre.Console" />
   </ItemGroup>
 
 </Project>

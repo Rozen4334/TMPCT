@@ -1,33 +1,12 @@
-﻿using TMPCT.API;
+﻿using TMPCT;
+using TMPCT.API;
 using TMPCT.Commands;
 
 // start build
-var configuration = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json")
-    .Build();
-
 var collection = new ServiceCollection();
 
-collection.AddLogging(configure =>
-{
-    configure.AddSimpleConsole();
-});
-
-collection.AddHttpClient<ITranslateClient, TranslateClient>(configure =>
-{
-    configure.BaseAddress = new Uri(configuration["ApiUrl"] ?? "");
-});
-
-var commandConfiguration = new CommandConfiguration()
-{
-    DoAsynchronousExecution = false,
-    AutoRegisterModules = true,
-    RegistrationAssembly = typeof(Program).Assembly,
-};
-
-collection.AddSingleton(commandConfiguration);
-collection.AddSingleton(configuration);
-
+collection.AddLogging(configure => configure.AddSimpleConsole());
+collection.AddHttpClient<ITranslateClient, TranslateClient>(configure => configure.BaseAddress = new Uri(Configuration.Settings.ApiUrl ?? ""));
 collection.AddSingleton<CommandFramework>();
 // end build
 
@@ -57,7 +36,6 @@ while (!token.IsCancellationRequested)
     var command = AnsiConsole.Ask<string>("[grey]Command: '[/][orange1]help[/][grey]' for more info[/]");
 
     var context = new LocalCommandContext(command, token);
-
     await framework.ExecuteCommandAsync(context, services);
 }
 // end exec

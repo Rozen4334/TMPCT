@@ -9,7 +9,7 @@ namespace TMPCT.Commands
 {
     public class BaseModule : SpectreModuleBase<LocalCommandContext>
     {
-        [Command("quit")]
+        [Command("quit", "q", "exit")]
         public void Exit()
         {
             Context.Token.Cancel();
