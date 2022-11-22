@@ -10,6 +10,20 @@ collection.AddHttpClient<ITranslateClient, TranslateClient>(configure => configu
 collection.AddSingleton<CommandFramework>();
 // end build
 
+// start port config
+
+var localGamePort = 0;
+if (TcpConnectionInfo.TryGetLocalPort("Terraria", out ushort outPort) != 0)
+{
+    // Set the local game port.
+    localGamePort = outPort;
+}
+else
+{
+    AnsiConsole.WriteException("ERROR: The Terraria proccess was not found.");
+}
+// end port config
+
 // start setup
 using var services = collection.BuildServiceProvider();
 
