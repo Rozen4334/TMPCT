@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace TMPCT
+namespace TMPCT.Configuration
 {
     public static class Configuration
     {
@@ -51,10 +51,12 @@ namespace TMPCT
             if (content is null)
                 throw new ArgumentNullException(nameof(content), $"Internal file content in '{path}' was found null. \n\rPlease delete the file to let the application regenerate it.");
 
-            var obj = JsonSerializer.Deserialize<Settings>(content, Configuration.Options);
+            var obj = JsonSerializer.Deserialize<Settings>(content, Options);
 
             if (obj is null)
                 throw new JsonException($"Json structure in '{path}' was found null. \n\rPlease delete the file to let the application regenerate it.");
+
+            obj.ReadState = ReadState.Ready;
 
             return obj;
         }
@@ -62,6 +64,8 @@ namespace TMPCT
         private static async Task<Settings> ReadInnerAsync(string? path = null, CancellationToken token = default)
         {
             var obj = new Settings();
+
+            obj.ReadState = ReadState.Ready;
 
             await obj.SaveAsync(path, token);
 
